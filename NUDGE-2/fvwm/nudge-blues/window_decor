@@ -1,0 +1,119 @@
+#  Below I will write rather simple
+#  multipixmap window decoration.
+#
+#  I'm going to have pixmaps for 
+#  left edge of titlebar, rest of 
+#  titlebar and four pixmaps for buttons - 
+#  I use pretty boring _[]X layout,
+#  having the rest of functions on
+#  hotkeys and as window menu entries.
+#
+#  I am going to have different 
+#  set of decorations for active 
+#  and inactive windows, which
+#  makes 12 pixmaps total.
+#
+#  One can write more complicated 
+#  or simple themes - eleven pixmaps
+#  can be used for titlebar alone, 
+#  tiled or stretced, pixmap or vector
+#  pictures can be set for all ten 
+#  buttons fvwm allows to have on the
+#  titlebar, separate picture for 
+#  each of button states.
+#
+#  As usual, refer to manuals for 
+#  list of all options fvwm suggests.
+#
+#  Back to my theme, though. 
+
+#  Let's start with the titlebar, 
+#  tiling the pixmaps left to right.
+#  I would, for simplicity, name 
+#  the pixmaps like StateWhereItGoes.xpm
+#
+#  I would use xpm to be able to change
+#  colors with simple script in future,
+#  but fvwm has png support as well.
+#
+#  Let's set titlebar height (optional)
+#  first and make window title left
+#  aligned (also optional)
+
+TitleStyle Height 20
+TitleStyle LeftJustified
+
+#  Now we know what height the titlebar 
+#  has (set up a nice looking font
+#  in fonts file in this folder)
+
+TitleStyle Active MultiPixmap LeftEnd AdjustedPixmap LeftEndActive.xpm Main AdjustedPixmap MainActive.xpm RightEnd AdjustedPixmap RightEndActive.xpm
+TitleStyle Inactive MultiPixmap LeftEnd AdjustedPixmap LeftEndInactive.xpm Main AdjustedPixmap MainInactive.xpm RightEnd AdjustedPixmap RightEndInactive.xpm 
+
+#  And button styles are written the similar way:
+
+ButtonStyle 6 ActiveUp AdjustedPixmap 6ActiveUp.xpm
+ButtonStyle 6 ActiveDown AdjustedPixmap 6ActiveDown.xpm
+ButtonStyle 6 InactiveUp AdjustedPixmap 6InactiveUp.xpm
+ButtonStyle 6 InactiveDown AdjustedPixmap 6InactiveDown.xpm
+
+ButtonStyle 4 ActiveUp  AdjustedPixmap 4ActiveUp.xpm
+ButtonStyle 4 ActiveDown  AdjustedPixmap 4ActiveDown.xpm
+ButtonStyle 4 InactiveUp AdjustedPixmap 4InactiveUp.xpm
+ButtonStyle 4 InactiveDown AdjustedPixmap 4InactiveDown.xpm
+
+ButtonStyle 2 ActiveUp AdjustedPixmap 2ActiveUp.xpm
+ButtonStyle 2 ActiveDown AdjustedPixmap 2ActiveDown.xpm
+ButtonStyle 2 InactiveUp AdjustedPixmap 2InactiveUp.xpm  
+ButtonStyle 2 InactiveDown AdjustedPixmap 2InactiveDown.xpm  
+
+ButtonStyle 1 ActiveUp AdjustedPixmap 1ActiveUp.xpm
+ButtonStyle 1 ActiveDown AdjustedPixmap 1ActiveDown.xpm
+ButtonStyle 1 InactiveUp AdjustedPixmap 1InactiveUp.xpm
+ButtonStyle 1 InactiveDown AdjustedPixmap 1InactiveDown.xpm
+
+#  Set border width and handle width
+#  They should be the same, or else 
+#  greater value is used.
+
+Style * BorderWidth 3
+Style * HandleWidth 3
+
+#  IMPORTANT! Colorset numeration
+#  convention given in manuals is:
+#    0 = Default colors
+#    1 = Inactive windows
+#    2 = Active windows
+#    3 = Inactive menu entry and menu background
+#    4 = Active menu entry
+#    5 = greyed out menu entry (only bg used)
+#    6 = module foreground and background
+#    7 = hilight colors
+
+#  Keeping this in mind, define colorsets 
+#  for window borders: 
+
+BorderStyle Active Colorset 8 -- flat 
+BorderStyle Inactive Colorset 9 -- flat
+Colorset 8 bg #532706
+Colorset 9 bg #532706
+
+#  One more thing to specify here is 
+#  colors in which window titles are
+#  written - again, different for active
+#  and inactive windows: 
+
+Style "*" HilightFore #e0dcb4
+Style "*" Color #658280
+
+#  Get rid of 3d everywhere - if 
+#  it's not done, we will have our
+#  pixmaps on the top surface of 
+#  pseudo3d button.
+
+TitleStyle -- flat
+ButtonStyle All Active -- flat
+ButtonStyle All Inactive -- flat
+
+#  Defalt title to left
+Style "*" TitleAtLeft

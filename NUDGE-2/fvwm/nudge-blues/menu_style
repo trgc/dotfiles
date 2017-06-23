@@ -1,0 +1,11 @@
+Colorset 3 fg #532706, bg #110005, sh #532706, hi #532706
+Colorset 7 fg #658280, bg #e0dcb4
+#Colorset 7 fg #e0dcb4, bg white
+MenuStyle * MenuColorset 3
+MenuStyle * SeparatorsLong, TrianglesSolid
+MenuStyle * BorderWidth 2
+MenuStyle * PopupAsSubmenu, HoldSubmenus, SubmenusRight
+MenuStyle * ActiveFore, Hilight3DOff
+MenuStyle * ActiveColorset 7
+MenuStyle "*" PopupOffset 2 100
+

@@ -1,0 +1,5 @@
+# Fonts are written much like in 
+# conky config here:
+
+Style "*" Font "xft:kates:Regular:size=10"
+MenuStyle "*" Font "xft:Liberation Sans:Regular:size=10"
